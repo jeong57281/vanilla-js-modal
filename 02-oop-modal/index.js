@@ -20,7 +20,7 @@ class Modal {
 
   setEvent(){
     this.$target.addEventListener('click', (e) => {
-      if(e.target.closest('.dimmed')){
+      if(e.target.classList.contains('dimmed')){
         this.closeModal();
       }
     });
