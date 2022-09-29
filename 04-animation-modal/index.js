@@ -51,8 +51,3 @@ const $modalOpenBtn = document.querySelector('#modalA-open-btn');
 $modalOpenBtn.addEventListener('click', () => {
   modal.openModal();
 });
-
-const $alertBtn = document.querySelector('#alert-btn');
-$alertBtn.addEventListener('click', () => {
-  alert('non-modal');
-});
