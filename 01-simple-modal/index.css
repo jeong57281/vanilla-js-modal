@@ -4,6 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  display: none;
 }
 
 .modal .modal-body {
@@ -24,6 +25,6 @@
   background-color: rgb(0, 0, 0, 0.1);
 }
 
-.hidden {
-  display: none;
+.show {
+  display: block;
 }

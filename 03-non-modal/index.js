@@ -10,7 +10,7 @@ class Modal {
 
   render(){
     this.$target.innerHTML = `
-      <div class="modal hidden">
+      <div class="modal">
         <div class="modal-body">
           ${this.content}
         </div>
@@ -31,14 +31,14 @@ class Modal {
     this.firstExecute = true;
 
     const $modal = this.$target.querySelector('.modal');
-    $modal.classList.remove('hidden');
+    $modal.classList.add('show');
 
     window.addEventListener('click', this.closeModalEventListener);
   }
 
   closeModal(){
     const $modal = this.$target.querySelector('.modal');
-    $modal.classList.add('hidden');
+    $modal.classList.remove('show');
 
     window.removeEventListener('click', this.closeModalEventListener);
   }
