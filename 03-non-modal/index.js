@@ -20,7 +20,7 @@ class Modal {
   }
 
   closeModalEventListener = ({ target }) => {
-    alert('debug');
+    alert('touch start');
     const $modalBody = this.$target.querySelector('.modal-body');
     if(!$modalBody.contains(target) && !this.firstExecute){
       this.closeModal();
@@ -34,7 +34,7 @@ class Modal {
     const $modal = this.$target.querySelector('.modal');
     $modal.classList.add('show');
 
-    window.addEventListener('click', this.closeModalEventListener);
+    //window.addEventListener('click', this.closeModalEventListener);
     window.addEventListener('touchstart', this.closeModalEventListener);
   }
 
@@ -42,7 +42,7 @@ class Modal {
     const $modal = this.$target.querySelector('.modal');
     $modal.classList.remove('show');
 
-    window.removeEventListener('click', this.closeModalEventListener);
+    //window.removeEventListener('click', this.closeModalEventListener);
   }
 }
 
