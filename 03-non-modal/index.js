@@ -5,6 +5,8 @@ class Modal {
     this.isNonModal = isNonModal;
 
     this.firstExecute = true;
+    this.visible = false;
+    this.setEvent();
     this.render();
   }
 
@@ -19,9 +21,14 @@ class Modal {
     `;
   }
 
+  setEvent(){
+    window.addEventListener('click', this.closeModalEventListener);
+    window.addEventListener('touchstart', this.closeModalEventListener);
+  }
+
   closeModalEventListener = ({ target }) => {
     const $modalBody = this.$target.querySelector('.modal-body');
-    if(!$modalBody.contains(target) && !this.firstExecute){
+    if(this.visible && !$modalBody.contains(target) && !this.firstExecute){
       this.closeModal();
     }
     this.firstExecute = false;
@@ -29,20 +36,15 @@ class Modal {
 
   openModal(){
     this.firstExecute = true;
-
+    this.visible = true;
     const $modal = this.$target.querySelector('.modal');
     $modal.classList.add('show');
-
-    window.addEventListener('click', this.closeModalEventListener);
-    window.addEventListener('touchstart', this.closeModalEventListener);
   }
 
   closeModal(){
+    this.visible = false;
     const $modal = this.$target.querySelector('.modal');
     $modal.classList.remove('show');
-
-    window.removeEventListener('click', this.closeModalEventListener);
-    window.removeEventListener('touchstart', this.closeModalEventListener);
   }
 }
 
