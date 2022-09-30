@@ -35,6 +35,7 @@ class Modal {
     $modal.classList.add('show');
 
     window.addEventListener('click', this.closeModalEventListener);
+    window.addEventListener('touchstart', this.closeModalEventListener);
   }
 
   closeModal(){
