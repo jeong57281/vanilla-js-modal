@@ -20,6 +20,7 @@ class Modal {
   }
 
   closeModalEventListener = ({ target }) => {
+    alert('debug');
     const $modalBody = this.$target.querySelector('.modal-body');
     if(!$modalBody.contains(target) && !this.firstExecute){
       this.closeModal();
