@@ -4,7 +4,6 @@ class Modal {
     this.content = content;
     this.isNonModal = isNonModal;
 
-    this.firstExecute = true;
     this.visible = false;
     this.setEvent();
     this.render();
@@ -28,23 +27,26 @@ class Modal {
 
   closeModalEventListener = ({ target }) => {
     const $modalBody = this.$target.querySelector('.modal-body');
-    if(this.visible && !$modalBody.contains(target) && !this.firstExecute){
+    if(this.visible && !$modalBody.contains(target)){
       this.closeModal();
     }
-    this.firstExecute = false;
   }
 
-  openModal(){
-    this.firstExecute = true;
+  openModal = async () => {
+    await this.sleep(0);
     this.visible = true;
     const $modal = this.$target.querySelector('.modal');
     $modal.classList.add('show');
   }
 
-  closeModal(){
+  closeModal = () => {
     this.visible = false;
     const $modal = this.$target.querySelector('.modal');
     $modal.classList.remove('show');
+  }
+
+  sleep = async (ms) => {
+    return new Promise(resolve => setTimeout(() => resolve(true), ms));
   }
 }
 
