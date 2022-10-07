@@ -9,10 +9,10 @@ class Modal {
   render(){
     this.$target.innerHTML = `
       <div class="modal">
+        <div class="dimmed">
         <div class="modal-body">
           ${this.content}
         </div>
-        <div class="dimmed">
         </div>
       </div>
     `;
@@ -38,7 +38,10 @@ class Modal {
 }
 
 const $modalAWrapper = document.querySelector('#modalA-wrapper');
-const modalA = new Modal($modalAWrapper, 'modalA content');
+const modalA = new Modal(
+  $modalAWrapper,
+  '<div class="modal-content"> modalA </div>'
+);
 
 const $modalAOpenBtn = document.querySelector('#modalA-open-btn');
 $modalAOpenBtn.addEventListener('click', () => {
@@ -46,7 +49,10 @@ $modalAOpenBtn.addEventListener('click', () => {
 });
 
 const $modalBWrapper = document.querySelector('#modalB-wrapper');
-const modalB = new Modal($modalBWrapper, 'modalB content');
+const modalB = new Modal(
+  $modalBWrapper,
+  '<div class="modal-content"> modalB </div>'
+);
 
 const $modalBOpenBtn = document.querySelector('#modalB-open-btn');
 $modalBOpenBtn.addEventListener('click', () => {

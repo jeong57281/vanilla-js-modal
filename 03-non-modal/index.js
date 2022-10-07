@@ -12,10 +12,10 @@ class Modal {
   render(){
     this.$target.innerHTML = `
       <div class="modal">
+        ${!this.isNonModal ? '<div class="dimmed"></div>' : ''}
         <div class="modal-body">
           ${this.content}
         </div>
-        ${!this.isNonModal ? '<div class="dimmed"></div>' : ''}
       </div>
     `;
   }
@@ -50,10 +50,14 @@ class Modal {
   }
 }
 
-const $modalWrapper = document.querySelector('#modalA-wrapper');
-const modal = new Modal($modalWrapper, 'modal content', true);
+const $modalWrapper = document.querySelector('#modal-wrapper');
+const modal = new Modal(
+  $modalWrapper,
+  '<div class="modal-content"> modal </div>',
+  true
+);
 
-const $modalOpenBtn = document.querySelector('#modalA-open-btn');
+const $modalOpenBtn = document.querySelector('#modal-open-btn');
 $modalOpenBtn.addEventListener('click', () => {
   modal.openModal();
 });
