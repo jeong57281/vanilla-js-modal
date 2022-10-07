@@ -9,10 +9,9 @@ class Modal {
   render(){
     this.$target.innerHTML = `
       <div class="modal">
-        <div class="dimmed">
+        <div class="dimmed"></div>
         <div class="modal-body">
           ${this.content}
-        </div>
         </div>
       </div>
     `;
