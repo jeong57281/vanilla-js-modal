@@ -43,10 +43,6 @@ class Modal {
     const $modal = this.$target.querySelector('.modal');
     $modal.classList.remove('show');
   }
-
-  sleep = async (ms) => {
-    return new Promise(resolve => setTimeout(() => resolve(true), ms));
-  }
 }
 
 const $modalWrapper = document.querySelector('#modal-wrapper');
